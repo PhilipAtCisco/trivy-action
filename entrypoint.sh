@@ -39,16 +39,16 @@ if [ "${TRIVY_FORMAT:-}" = "sarif" ]; then
   fi
 fi
 
-export GOTRACEBACK=crash
-ulimit -c unlimited
+#export GOTRACEBACK=crash
+#ulimit -c unlimited
 
 # Run Trivy
-cmd=(trivy "$scanType" "$scanRef")
+cmd=(trivy -d "$scanType" "$scanRef")
 echo "Running Trivy with options: ${cmd[*]}"
 "${cmd[@]}"
 returnCode=$?
 
-find /var -name core\*
+#find /var -name core\*
 
 if [ "${TRIVY_FORMAT:-}" = "github" ]; then
   if [ -n "${INPUT_GITHUB_PAT:-}" ]; then
