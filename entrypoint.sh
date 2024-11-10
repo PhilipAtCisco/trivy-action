@@ -1,6 +1,5 @@
 #!/bin/bash
-#set -euo pipefail
-set -uo pipefail
+set -euo pipefail
 
 # Set artifact reference
 scanType="${INPUT_SCAN_TYPE:-image}"
@@ -39,16 +38,13 @@ if [ "${TRIVY_FORMAT:-}" = "sarif" ]; then
   fi
 fi
 
-#export GOTRACEBACK=crash
-#ulimit -c unlimited
-
 # Run Trivy
 cmd=(trivy -d "$scanType" "$scanRef")
 echo "Running Trivy with options: ${cmd[*]}"
 "${cmd[@]}"
 returnCode=$?
 
-#find /var -name core\*
+ls -l
 
 if [ "${TRIVY_FORMAT:-}" = "github" ]; then
   if [ -n "${INPUT_GITHUB_PAT:-}" ]; then
