@@ -1,5 +1,6 @@
 #!/bin/bash
-set -euo pipefail
+#set -euo pipefail
+set -uo pipefail
 
 # Set artifact reference
 scanType="${INPUT_SCAN_TYPE:-image}"
@@ -39,7 +40,7 @@ if [ "${TRIVY_FORMAT:-}" = "sarif" ]; then
 fi
 
 # Run Trivy
-cmd=(trivy -d "$scanType" "$scanRef")
+cmd=(trivy "$scanType" "$scanRef")
 echo "Running Trivy with options: ${cmd[*]}"
 "${cmd[@]}"
 returnCode=$?
