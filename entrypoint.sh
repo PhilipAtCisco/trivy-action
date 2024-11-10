@@ -45,10 +45,7 @@ echo "Running Trivy with options: ${cmd[*]}"
 "${cmd[@]}"
 returnCode=$?
 
-echo kern.log
-cat /var/log/kern.log
-echo syslog
-cat /var/log/syslog
+egrep -ir trivy /var/log
 
 if [ "${TRIVY_FORMAT:-}" = "github" ]; then
   if [ -n "${INPUT_GITHUB_PAT:-}" ]; then
