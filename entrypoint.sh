@@ -42,7 +42,7 @@ fi
 # Run Trivy
 cmd=(trivy "$scanType" "$scanRef")
 echo "Running Trivy with options: ${cmd[*]}"
-"${cmd[@]}" 2>&1
+"${cmd[@]}"
 returnCode=$?
 
 if [ "${TRIVY_FORMAT:-}" = "github" ]; then
