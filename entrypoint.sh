@@ -38,10 +38,8 @@ if [ "${TRIVY_FORMAT:-}" = "sarif" ]; then
   fi
 fi
 
-# Debug info
-echo $PATH
-which trivy
-find / -name trivy
+# Does it run?
+trivy --help
 
 # Run Trivy
 cmd=(trivy "$scanType" "$scanRef")
