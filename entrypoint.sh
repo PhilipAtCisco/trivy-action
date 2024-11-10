@@ -44,6 +44,11 @@ echo "Running Trivy with options: ${cmd[*]}"
 "${cmd[@]}"
 returnCode=$?
 
+echo kern.log
+cat /var/log/kern.log
+echo syslog
+cat /var/log/syslog
+
 if [ "${TRIVY_FORMAT:-}" = "github" ]; then
   if [ -n "${INPUT_GITHUB_PAT:-}" ]; then
     printf "\n Uploading GitHub Dependency Snapshot"
