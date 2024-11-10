@@ -38,6 +38,11 @@ if [ "${TRIVY_FORMAT:-}" = "sarif" ]; then
   fi
 fi
 
+# Debug info
+echo $PATH
+which trivy
+find / -name trivy
+
 # Run Trivy
 cmd=(trivy "$scanType" "$scanRef")
 echo "Running Trivy with options: ${cmd[*]}"
