@@ -189,7 +189,7 @@ runs:
         set_env_var_if_provided "TRIVY_CONFIG" "${{ inputs.trivy-config }}" ""
         set_env_var_if_provided "TRIVY_TF_VARS" "${{ inputs.tf-vars }}" ""
         set_env_var_if_provided "TRIVY_DOCKER_HOST" "${{ inputs.docker-host }}" ""
-        set_env_var_if_provided "TRIVY_CHECKS_BUNDLE_REPOSITORY" "${{ inputs.checks_bundle_repository }}" ""
+        set_env_var_if_provided "TRIVY_CHECKS_BUNDLE_REPOSITORY" "${{ inputs.checks-bundle-repository }}" ""
 
     - name: Run Trivy
       shell: bash
