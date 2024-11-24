@@ -215,7 +215,7 @@ jobs:
       uses: aquasecurity/setup-trivy@v0.2.0
       with:
         cache: true
-        version: v0.56.1
+        version: v0.57.1
 
     - name: Run Trivy vulnerability scanner in repo mode
       uses: aquasecurity/trivy-action@master
@@ -550,7 +550,6 @@ jobs:
           format: 'sarif'
           output: 'trivy-results.sarif'
           exit-code: '1'
-          ignore-unfixed: true
           severity: 'CRITICAL,HIGH'
 
       - name: Upload Trivy scan results to GitHub Security tab
