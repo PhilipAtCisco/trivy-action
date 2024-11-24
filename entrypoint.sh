@@ -38,13 +38,10 @@ if [ "${TRIVY_FORMAT:-}" = "sarif" ]; then
   fi
 fi
 
-# output environment vars
-env
-
 # Run Trivy
 cmd=(trivy "$scanType" "$scanRef")
 echo "Running Trivy with options: ${cmd[*]}"
-"${cmd[@]}" 2>&1 > output.txt
+"${cmd[@]}"
 returnCode=$?
 
 if [ "${TRIVY_FORMAT:-}" = "github" ]; then
